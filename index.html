@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कुरुबंशी ट्रैक्टर डीलरशिप - गडरवारा</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* Top Right Contact Menu */
+        .top-contact {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .contact-btn {
+            background: #ff9800;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .contact-btn:hover {
+            background: #f57c00;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1b5e20;
+            font-size: 24px;
+            border-bottom: 2px solid #c8e6c9;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .title-wrapper {
+            text-align: center;
+        }
+        
+        /* Tractor Grid */
+        .tractor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .tractor-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tractor-card:hover {
+            transform: translateY(-5px);
+        }
+        .tractor-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid #eee;
+        }
+        .tractor-info {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .tractor-info h3 {
+            color: #d32f2f;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .tractor-info p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .price-tag {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            border-top: 1px dashed #c8e6c9;
+        }
+
+        /* Floating Draggable WhatsApp Button */
+        #whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: background 0.3s;
+            user-select: none;
+        }
+        #whatsapp-float:hover {
+            background-color: #128c7e;
+        }
+
+        /* Collapsible EMI Calculator Floating Widget */
+        .emi-widget {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 320px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .emi-header {
+            background: #1b5e20;
+            color: white;
+            padding: 12px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .emi-body {
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+        .emi-body.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #444;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .calc-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+        .calc-btn:hover {
+            background: #1b5e20;
+        }
+        .emi-result {
+            margin-top: 15px;
+            background: #f1f8e9;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        @media(max-width: 768px) {
+            .top-contact {
+                position: relative;
+                right: auto;
+                top: auto;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>कुरुबंशी ट्रैक्टर डीलरशिप</h1>
+        <p>पता: गडरवारा, जिला - नरसिंहपुर (म.प्र.)</p>
+        <div class="top-contact">
+            <a href="tel:91XXXXXXXXXX" class="contact-btn">📞 कॉल करें</a>
+            <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते,%20मुझे%20ट्रैक्टरों%20की%20जानकारी%20चाहिए।" target="_blank" class="contact-btn" style="background:#25d366;">💬 WhatsApp</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="title-wrapper">
+            <h2 class="section-title">हमारे यहाँ उपलब्ध बेहतरीन ट्रैक्टर</h2>
+        </div>
+
+        <div class="tractor-grid">
+            
+            <!-- Tractor 1 -->
+            <div class="tractor-card">
+                <img src="1000056245.jpg" alt="Eicher 557" class="tractor-img">
+                <div class="tractor-info">
+                    <h3>आयशर 557 (55 HP 4x4 WD)</h3>
+                    <p><b>फीचर्स:</b> डबल क्लच, पॉवर स्टीरिंग, साइड गियर।</p>
+                    <p><b>टायर:</b> 16.9x28R / 9.5x24 (70% ओरिजिनल)</p>
+                    <p><b>मॉडल:</b> 2023</p>
+                </div>
+                <div class="price-tag">₹7,40,000/- (फिक्स रेट)</div>
+            </div>
+
+            <!-- Tractor 2 -->
+            <div class="tractor-card">
+                <img src="1000056356.jpg" alt="Sonalika Tiger DI 50" class="tractor-img">
+                <div class="tractor-info">
+                    <h3>सोनालिका टाइगर DI 50 (50 HP 4X4 WD)</h3>
+                    <p><b>फीचर्स:</b> साइड गियर, पॉवर स्टीरिंग।</p>
+                    <p><b>टायर:</b> 14.9x28R नए / 9.5x20F (50% ओरिजिनल)</p>
+                    <p><b>मॉडल / रनिंग:</b> 2023, 1500 घंटे</p>
+                    <p><i>फाइनेंस की सुविधा उपलब्ध है।</i></p>
+                </div>
+                <div class="price-tag">₹6,10,000/- (फाइनल फिक्स रेट)</div>
+            </div>
+
+            <!-- Tractor 3 -->
+            <div class="tractor-card">
+                <img src="1000057787.jpg" alt="Mahindra Novo 605 DI" class="tractor-img">
+                <div class="tractor-info">
+                    <h3>महिंद्रा नोवो 605 DI PS (55 HP 4X4 WD)</h3>
+                    <p><b>कंडीशन:</b> शोरूम कंडीशन ट्रैक्टर</p>
+                    <p><b>टायर:</b> 16.9.28 / 9.5.24 ओरिजिनल</p>
+                    <p><b>उत्पादन मॉडल:</b> 2/2025</p>
+                </div>
+                <div class="price-tag">₹8,10,000/- (फाइनल फिक्स रेट)</div>
+            </div>
+
+            <!-- Tractor 4 -->
+            <div class="tractor-card">
+                <img src="1000058121.jpg" alt="New Holland 3600-2 TX Plus" class="tractor-img">
+                <div class="tractor-info">
+                    <h3>न्यू हॉलैंड 3600-2 TX प्लस (50 HP)</h3>
+                    <p><b>फीचर्स:</b> डबल क्लच, साइड गियर, पॉवर स्टीरिंग, मल्टी स्पीड PTO।</p>
+                    <p><b>मॉडल / रनिंग:</b> 2024, 600 घंटे</p>
+                    <p><b>टायर:</b> 15.9.28R / 7.50.16F (80% ओरिजिनल)</p>
+                    <p><i>फाइनेंस सुविधा उपलब्ध (MP Only)। समाधान ट्रैक्टर्स जबलपुर म.प्र.</i></p>
+                </div>
+                <div class="price-tag">₹6,25,000/- (फाइनल फिक्स रेट)</div>
+            </div>
+
+            <!-- Tractor 5 -->
+            <div class="tractor-card">
+                <img src="1000053581.jpg" alt="Kubota MU 5501" class="tractor-img">
+                <div class="tractor-info">
+                    <h3>कुबोटा MU 5501 (55 HP 4X4 WD)</h3>
+                    <p><b>फीचर्स:</b> डबल क्लच, साइड गियर, रिवर्स पीटीओ।</p>
+                    <p><b>मॉडल:</b> 2020 | <b>टायर:</b> 16.9.28 / 9.5.24</p>
+                    <p style="color: #d32f2f; font-weight: bold;">👉 कैश/नगद में कीमत: 5 लाख मात्र। (जिसकी बुकिंग पहले, ट्रैक्टर उसका।)</p>
+                </div>
+                <div class="price-tag">₹5,50,000/- (फाइनल)</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Draggable WhatsApp Button -->
+    <div id="whatsapp-float" title="WhatsApp पर बात करें">
+        💬
+    </div>
+
+    <!-- Collapsible EMI Calculator Widget -->
+    <div class="emi-widget" id="emiWidget">
+        <div class="emi-header" onclick="toggleEmiCalculator()">
+            <span>📊 EMI कैलकुलेटर</span>
+            <span id="toggleIcon">➕</span>
+        </div>
+        <div class="emi-body" id="emiBody">
+            <div class="form-group">
+                <label>लोन अमाउंट (₹):</label>
+                <input type="number" id="loanAmount" placeholder="जैसे: 500000" value="500000">
+            </div>
+            <div class="form-group">
+                <label>ब्याज दर (% वार्षिक):</label>
+                <input type="number" id="interestRate" placeholder="जैसे: 10" value="10" step="0.1">
+            </div>
+            <div class="form-group">
+                <label>समय (वर्षों में):</label>
+                <input type="number" id="loanYears" placeholder="जैसे: 3" value="3" step="0.5">
+            </div>
+            <button class="calc-btn" onclick="calculateEMI()">कैलकुलेट करें</button>
+            
+            <div class="emi-result" id="emiResult" style="display: none;">
+                <!-- Result will show here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle EMI Calculator Box
+        function toggleEmiCalculator() {
+            const body = document.getElementById('emiBody');
+            const icon = document.getElementById('toggleIcon');
+            if (body.classList.contains('active')) {
+                body.classList.remove('active');
+                icon.innerText = '➕';
+            } else {
+                body.classList.add('active');
+                icon.innerText = '➖';
+            }
+        }
+
+        // Accurate EMI Calculation Logic
+        function calculateEMI() {
+            let principal = parseFloat(document.getElementById('loanAmount').value);
+            let annualInterest = parseFloat(document.getElementById('interestRate').value);
+            let years = parseFloat(document.getElementById('loanYears').value);
+
+            if (isNaN(principal) || isNaN(annualInterest) || isNaN(years) || principal <= 0 || years <= 0) {
+                alert("कृपया सही वैल्यू भरें!");
+                return;
+            }
+
+            let monthlyInterestRate = (annualInterest / 12) / 100;
+            let totalMonths = Math.round(years * 12);
+
+            let emi;
+            if (annualInterest === 0) {
+                emi = principal / totalMonths;
+            } else {
+                let x = Math.pow(1 + monthlyInterestRate, totalMonths);
+                emi = (principal * monthlyInterestRate * x) / (x - 1);
+            }
+
+            let totalPayment = emi * totalMonths;
+            let totalInterest = totalPayment - principal;
+
+            let resultDiv = document.getElementById('emiResult');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <b>मासिक किस्त (EMI):</b> ₹${Math.round(emi).toLocaleString('en-IN')} प्रति माह<br>
+                <b>कुल महीने:</b> ${totalMonths} महीने<br>
+                <b>कुल ब्याज (Interest):</b> ₹${Math.round(totalInterest).toLocaleString('en-IN')}<br>
+                <b>कुल भुगतान (Principal + Interest):</b> ₹${Math.round(totalPayment).toLocaleString('en-IN')}
+            `;
+        }
+
+        // Draggable WhatsApp Button Script (Mouse & Touch Support)
+        const whatsappFloat = document.getElementById('whatsapp-float');
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+
+        whatsappFloat.addEventListener('mousedown', dragStart);
+        whatsappFloat.addEventListener('touchstart', dragStart, {passive: true});
+
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag, {passive: true});
+
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
+
+        function dragStart(e) {
+            isDragging = true;
+            let clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+            let clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+            
+            initialX = clientX - whatsappFloat.offsetLeft;
+            initialY = clientY - whatsappFloat.offsetTop;
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            let clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            let clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+
+            let currentX = clientX - initialX;
+            let currentY = clientY - initialY;
+
+            // Keep within window boundaries
+            currentX = Math.max(10, Math.min(window.innerWidth - 70, currentX));
+            currentY = Math.max(10, Math.min(window.innerHeight - 70, currentY));
+
+            whatsappFloat.style.left = currentX + 'px';
+            whatsappFloat.style.top = currentY + 'px';
+            whatsappFloat.style.bottom = 'auto';
+            whatsappFloat.style.right = 'auto';
+        }
+
+        function dragEnd() {
+            isDragging = false;
+        }
+
+        // Open WhatsApp on click if not dragging heavily
+        whatsappFloat.addEventListener('click', function(e) {
+            window.open('https://wa.me/91XXXXXXXXXX?text=नमस्ते,%20मुझे%20ट्रैक्टरों%20के%20बारे%20में%20जानकारी%20चाहिए।', '_blank');
+        });
+    </script>
+</body>
+</html>
