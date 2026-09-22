@@ -484,33 +484,183 @@ function closeForm(){
 
 }
 
+<!-- Floating EMI Calculator -->
+<div id="emiWidget">
 
-function calculateEMI(){
+  <button id="emiButton" onclick="toggleEMI()">
+    💰 EMI Calculator
+  </button>
 
-  let P = parseFloat(document.getElementById("loanAmount").value);
-  let annualRate = parseFloat(document.getElementById("interest").value);
-  let years = parseFloat(document.getElementById("years").value);
+  <div id="emiBox">
+    <div class="emiHeader">
+      <strong>💰 EMI Calculator</strong>
+      <button onclick="toggleEMI()" class="emiClose">×</button>
+    </div>
 
-  if(!P || !annualRate || !years){
+    <label>Loan Amount (₹)</label>
+    <input type="number" id="loanAmount" placeholder="जैसे 500000">
 
-    document.getElementById("emiResult").innerText =
-      "कृपया सभी जानकारी भरें।";
+    <label>Interest Rate (% सालाना)</label>
+    <input type="number" id="interestRate" placeholder="जैसे 8.5" step="0.1">
 
-    return;
+    <label>Loan Tenure (Years)</label>
+    <input type="number" id="loanYears" placeholder="जैसे 5">
+
+    <button onclick="calculateEMI()" class="calculateBtn">
+      Calculate EMI
+    </button>
+
+    <div id="emiResult"></div>
+  </div>
+
+</div>
+
+<style>
+  #emiWidget {
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
   }
 
-  let monthlyRate = annualRate / 12 / 100;
-  let months = years * 12;
+  #emiButton {
+    background: #198754;
+    color: white;
+    border: none;
+    padding: 13px 18px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  }
 
-  let emi =
-    P * monthlyRate *
-    Math.pow(1 + monthlyRate, months) /
-    (Math.pow(1 + monthlyRate, months) - 1);
+  #emiBox {
+    display: none;
+    width: 300px;
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    border: 2px solid #198754;
+    margin-bottom: 10px;
+  }
 
-  document.getElementById("emiResult").innerText =
-    "लगभग EMI: ₹" + Math.round(emi).toLocaleString("en-IN") +
-    " / महीना";
-}
+  .emiHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  .emiClose {
+    border: none;
+    background: #dc3545;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 20px;
+  }
+
+  #emiBox label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  #emiBox input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .calculateBtn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 11px;
+    background: #198754;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #emiResult {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f1f8f4;
+    border-radius: 7px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    #emiBox {
+      width: 280px;
+    }
+
+    #emiWidget {
+      right: 10px;
+      bottom: 15px;
+    }
+  }
+</style>
+
+<script>
+  function toggleEMI() {
+    const box = document.getElementById("emiBox");
+
+    if (box.style.display === "block") {
+      box.style.display = "none";
+    } else {
+      box.style.display = "block";
+    }
+  }
+
+  function calculateEMI() {
+    const principal = parseFloat(document.getElementById("loanAmount").value);
+    const annualRate = parseFloat(document.getElementById("interestRate").value);
+    const years = parseFloat(document.getElementById("loanYears").value);
+
+    if (!principal || !annualRate || !years) {
+      document.getElementById("emiResult").innerHTML =
+        "⚠️ कृपया सभी जानकारी भरें।";
+      return;
+    }
+
+    const monthlyRate = annualRate / 12 / 100;
+    const months = years * 12;
+
+    const emi =
+      principal *
+      monthlyRate *
+      Math.pow(1 + monthlyRate, months) /
+      (Math.pow(1 + monthlyRate, months) - 1);
+
+    const totalPayment = emi * months;
+    const totalInterest = totalPayment - principal;
+
+    document.getElementById("emiResult").innerHTML =
+      "<strong>Monthly EMI:</strong> ₹" +
+      Math.round(emi).toLocaleString("en-IN") +
+      "<br><strong>Total Interest:</strong> ₹" +
+      Math.round(totalInterest).toLocaleString("en-IN") +
+      "<br><strong>Total Payment:</strong> ₹" +
+      Math.round(totalPayment).toLocaleString("en-IN");
+  }
+</script>
 
 </script>
 
