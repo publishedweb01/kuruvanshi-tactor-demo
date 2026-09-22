@@ -7,9 +7,7 @@
 <title>कुरुबंशी ट्रैक्टर डीलरशिप - गडरवारा</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -30,13 +28,9 @@ header h1{
   font-size:28px;
 }
 
-header p{
-  margin:5px 0;
-}
+header p{margin:5px 0}
 
-.top-buttons{
-  margin-top:15px;
-}
+.top-buttons{margin-top:15px}
 
 .top-buttons a{
   display:inline-block;
@@ -48,13 +42,8 @@ header p{
   font-weight:bold;
 }
 
-.call-btn{
-  background:#0d6efd;
-}
-
-.whatsapp-btn{
-  background:#25D366;
-}
+.call-btn{background:#0d6efd}
+.whatsapp-btn{background:#25D366}
 
 .container{
   max-width:1100px;
@@ -78,7 +67,7 @@ header p{
   background:white;
   border-radius:12px;
   padding:15px;
-  box-shadow:0 3px 12px rgba(0,0,0,0.12);
+  box-shadow:0 3px 12px rgba(0,0,0,.12);
 }
 
 .card img{
@@ -106,7 +95,8 @@ header p{
   line-height:1.7;
 }
 
-.enquiry-btn{
+.enquiry-btn,
+.submit-btn{
   width:100%;
   padding:12px;
   background:#198754;
@@ -125,7 +115,7 @@ header p{
   background:white;
   padding:20px;
   border-radius:12px;
-  box-shadow:0 3px 15px rgba(0,0,0,0.15);
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
 #formSection h2{
@@ -154,18 +144,7 @@ header p{
   resize:vertical;
 }
 
-.submit-btn{
-  width:100%;
-  margin-top:15px;
-  padding:12px;
-  background:#198754;
-  color:white;
-  border:0;
-  border-radius:7px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
+.submit-btn{margin-top:15px}
 
 .close-form{
   background:#dc3545;
@@ -177,7 +156,63 @@ header p{
   float:right;
 }
 
-/* ================= EMI BUTTON ================= */
+/* SUCCESS SCREEN */
+
+#successSection{
+  display:none;
+  max-width:600px;
+  margin:30px auto;
+  background:white;
+  padding:35px 20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 5px 25px rgba(0,0,0,.15);
+}
+
+.success-icon{
+  width:75px;
+  height:75px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:#198754;
+  color:white;
+  font-size:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#successSection h2{
+  color:#198754;
+  margin:10px 0;
+}
+
+.success-model{
+  background:#e9f7ef;
+  padding:12px;
+  border-radius:8px;
+  margin:18px 0;
+  font-weight:bold;
+}
+
+.success-text{
+  color:#555;
+  line-height:1.6;
+}
+
+.new-enquiry-btn{
+  border:0;
+  background:#198754;
+  color:white;
+  padding:12px 20px;
+  border-radius:7px;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+/* EMI */
 
 #emiWidget{
   position:fixed;
@@ -185,8 +220,6 @@ header p{
   bottom:20px;
   z-index:99999;
 }
-
-/* छोटा button */
 
 #emiOpenBtn{
   background:#198754;
@@ -197,10 +230,8 @@ header p{
   font-size:15px;
   font-weight:bold;
   cursor:pointer;
-  box-shadow:0 5px 18px rgba(0,0,0,0.3);
+  box-shadow:0 5px 18px rgba(0,0,0,.3);
 }
-
-/* EMI BOX */
 
 #emiCalculator{
   display:none;
@@ -209,7 +240,7 @@ header p{
   background:white;
   border:2px solid #198754;
   border-radius:14px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.35);
+  box-shadow:0 8px 30px rgba(0,0,0,.35);
   margin-bottom:10px;
   overflow:hidden;
 }
@@ -295,9 +326,7 @@ header p{
   font-size:14px;
 }
 
-.emi-row strong{
-  text-align:right;
-}
+.emi-row strong{text-align:right}
 
 .emi-row.highlight{
   background:#e9f7ef;
@@ -329,13 +358,9 @@ footer{
 
 @media(max-width:480px){
 
-  header h1{
-    font-size:23px;
-  }
+  header h1{font-size:23px}
 
-  .container{
-    padding:12px;
-  }
+  .container{padding:12px}
 
   #emiWidget{
     right:10px;
@@ -347,9 +372,7 @@ footer{
     font-size:14px;
   }
 
-  #emiCalculator{
-    width:310px;
-  }
+  #emiCalculator{width:310px}
 }
 </style>
 </head>
@@ -378,7 +401,6 @@ target="_blank">
 
 </header>
 
-
 <div class="container">
 
 <h2 class="section-title">
@@ -387,18 +409,13 @@ target="_blank">
 
 <div class="tractor-grid">
 
-
-<!-- EICHER -->
-
 <div class="card">
 
 <img src="1000056245.jpg" alt="Eicher 557">
 
 <h3>Eicher 557</h3>
 
-<div class="price">
-₹7,40,000 Fixed
-</div>
+<div class="price">₹7,40,000 Fixed</div>
 
 <ul>
 <li>55 HP</li>
@@ -414,18 +431,13 @@ onclick="openForm('Eicher 557')">
 
 </div>
 
-
-<!-- SONALIKA -->
-
 <div class="card">
 
 <img src="1000056356.jpg" alt="Sonalika Tiger DI 50">
 
 <h3>Sonalika Tiger DI 50</h3>
 
-<div class="price">
-₹6,10,000 Final Fixed
-</div>
+<div class="price">₹6,10,000 Final Fixed</div>
 
 <ul>
 <li>50 HP</li>
@@ -441,18 +453,13 @@ onclick="openForm('Sonalika Tiger DI 50')">
 
 </div>
 
-
-<!-- MAHINDRA -->
-
 <div class="card">
 
 <img src="1000057787.jpg" alt="Mahindra Novo 605 DI PS">
 
 <h3>Mahindra Novo 605 DI PS</h3>
 
-<div class="price">
-₹8,10,000 Final Fixed
-</div>
+<div class="price">₹8,10,000 Final Fixed</div>
 
 <ul>
 <li>55 HP</li>
@@ -468,18 +475,13 @@ onclick="openForm('Mahindra Novo 605 DI PS')">
 
 </div>
 
-
-<!-- NEW HOLLAND -->
-
 <div class="card">
 
 <img src="1000058121.jpg" alt="New Holland 3600-2 TX Plus">
 
 <h3>New Holland 3600-2 TX Plus</h3>
 
-<div class="price">
-₹6,25,000 Final Fixed
-</div>
+<div class="price">₹6,25,000 Final Fixed</div>
 
 <ul>
 <li>50 HP</li>
@@ -495,18 +497,13 @@ onclick="openForm('New Holland 3600-2 TX Plus')">
 
 </div>
 
-
-<!-- KUBOTA -->
-
 <div class="card">
 
 <img src="1000053581.jpg" alt="Kubota MU 5501">
 
 <h3>Kubota MU 5501</h3>
 
-<div class="price">
-₹5,50,000 Final
-</div>
+<div class="price">₹5,50,000 Final</div>
 
 <ul>
 <li>55 HP</li>
@@ -525,15 +522,12 @@ onclick="openForm('Kubota MU 5501')">
 </div>
 </div>
 
-
-<!-- ================= ENQUIRY FORM ================= -->
+<!-- ENQUIRY FORM -->
 
 <div id="formSection">
 
 <button class="close-form"
-onclick="closeForm()">
-×
-</button>
+onclick="closeForm()">×</button>
 
 <h2>📋 Tractor Enquiry</h2>
 
@@ -542,78 +536,67 @@ id="enquiryForm"
 action="https://formsubmit.co/seenukaurav09@gmail.com"
 method="POST">
 
-<input
-type="hidden"
+<input type="hidden"
 name="_subject"
 id="emailSubject"
 value="नई Tractor Enquiry">
 
-<input
-type="hidden"
+<input type="hidden"
 name="Tractor Model"
 id="tractorModel">
 
-<input
-type="hidden"
+<input type="hidden"
 name="_template"
 value="table">
 
-<input
-type="hidden"
+<input type="hidden"
 name="_captcha"
 value="false">
 
-<input
-type="hidden"
+<!-- FormSubmit submit होने के बाद इसी website पर वापस आएगा -->
+<input type="hidden"
+name="_next"
+value="https://publishedweb01.github.io/kuruvanshi-tactor-demo/?submitted=true">
+
+<input type="hidden"
 name="_honey"
 style="display:none">
 
 <label>🚜 Selected Tractor</label>
 
-<input
-type="text"
+<input type="text"
 id="selectedModel"
 readonly>
 
-
 <label>👤 आपका नाम</label>
 
-<input
-type="text"
+<input type="text"
 name="Name"
 placeholder="अपना नाम डालें"
 required>
 
-
 <label>📱 Mobile Number</label>
 
-<input
-type="tel"
+<input type="tel"
 name="Mobile Number"
 placeholder="10 digit mobile number"
 pattern="[0-9]{10}"
 maxlength="10"
 required>
 
-
 <label>📍 आपका पता</label>
 
-<input
-type="text"
+<input type="text"
 name="Address"
 placeholder="गाँव / शहर">
-
 
 <label>💬 Message</label>
 
 <textarea
 name="Message"
-placeholder="कोई जानकारी पूछना चाहते हैं तो यहाँ लिखें">
-</textarea>
+placeholder="कोई जानकारी पूछना चाहते हैं तो यहाँ लिखें"></textarea>
 
-
-<button
-type="submit"
+<button type="submit"
 class="submit-btn">
 📨 Enquiry भेजें
 </button>
@@ -622,17 +605,42 @@ class="submit-btn">
 
 </div>
 
+<!-- SUCCESS -->
 
-<!-- ================= EMI CALCULATOR ================= -->
+<div id="successSection">
+
+<div class="success-icon">✓</div>
+
+<h2>Enquiry Submitted Successfully!</h2>
+
+<p class="success-text">
+आपकी enquiry सफलतापूर्वक भेज दी गई है।
+</p>
+
+<div class="success-model">
+🚜 Tractor: <span id="successModel">-</span>
+</div>
+
+<p class="success-text">
+धन्यवाद! हमारी टीम आपकी enquiry की जानकारी देखकर
+जल्द ही आपसे संपर्क करेगी।
+</p>
+
+<button class="new-enquiry-btn"
+onclick="newEnquiry()">
+➕ नई Enquiry करें
+</button>
+
+</div>
+
+<!-- EMI -->
 
 <div id="emiWidget">
 
-<button
-id="emiOpenBtn"
+<button id="emiOpenBtn"
 onclick="toggleEMI()">
 💰 EMI Calculator
 </button>
-
 
 <div id="emiCalculator">
 
@@ -640,126 +648,62 @@ onclick="toggleEMI()">
 
 <span>💰 Tractor EMI Calculator</span>
 
-<button
-class="emi-close"
-onclick="toggleEMI()">
-×
-</button>
+<button class="emi-close"
+onclick="toggleEMI()">×</button>
 
 </div>
 
-
 <div class="emi-content">
 
-<label>
-🚜 Loan Amount (₹)
-</label>
+<label>🚜 Loan Amount (₹)</label>
 
-<input
-type="number"
+<input type="number"
 id="emiLoanAmount"
 placeholder="जैसे 500000">
 
+<label>📈 Interest Rate (% सालाना)</label>
 
-<label>
-📈 Interest Rate (% सालाना)
-</label>
-
-<input
-type="number"
+<input type="number"
 id="emiInterest"
 placeholder="जैसे 8.5"
 step="0.1">
 
+<label>📅 EMI कितने समय की चाहिए?</label>
 
-<label>
-📅 EMI कितने समय की चाहिए?
-</label>
-
-<select
-id="emiTenure"
+<select id="emiTenure"
 onchange="updateTenure()">
 
-<option value="">
--- अवधि चुनें --
-</option>
-
-<option value="6">
-6 महीने
-</option>
-
-<option value="12">
-12 महीने (1 साल)
-</option>
-
-<option value="18">
-18 महीने
-</option>
-
-<option value="24">
-24 महीने (2 साल)
-</option>
-
-<option value="36">
-36 महीने (3 साल)
-</option>
-
-<option value="48">
-48 महीने (4 साल)
-</option>
-
-<option value="60">
-60 महीने (5 साल)
-</option>
-
-<option value="72">
-72 महीने (6 साल)
-</option>
-
-<option value="84">
-84 महीने (7 साल)
-</option>
-
-<option value="96">
-96 महीने (8 साल)
-</option>
-
-<option value="120">
-120 महीने (10 साल)
-</option>
-
-<option value="custom">
-अपनी अवधि डालें
-</option>
+<option value="">-- अवधि चुनें --</option>
+<option value="6">6 महीने</option>
+<option value="12">12 महीने (1 साल)</option>
+<option value="18">18 महीने</option>
+<option value="24">24 महीने (2 साल)</option>
+<option value="36">36 महीने (3 साल)</option>
+<option value="48">48 महीने (4 साल)</option>
+<option value="60">60 महीने (5 साल)</option>
+<option value="72">72 महीने (6 साल)</option>
+<option value="84">84 महीने (7 साल)</option>
+<option value="96">96 महीने (8 साल)</option>
+<option value="120">120 महीने (10 साल)</option>
+<option value="custom">अपनी अवधि डालें</option>
 
 </select>
 
+<div id="customTenureBox" style="display:none;">
 
-<div
-id="customTenureBox"
-style="display:none;">
+<label>✏️ कितने महीने?</label>
 
-<label>
-✏️ कितने महीने?
-</label>
-
-<input
-type="number"
+<input type="number"
 id="customMonths"
 placeholder="जैसे 30"
 min="1">
 
 </div>
 
-
-<button
-class="emi-calculate"
+<button class="emi-calculate"
 onclick="calculateTractorEMI()">
-
 🧮 EMI Calculate करें
-
 </button>
-
 
 <div id="emiResult">
 
@@ -767,361 +711,257 @@ onclick="calculateTractorEMI()">
 📊 EMI की पूरी जानकारी
 </div>
 
-
 <div class="emi-row">
-
-<span>
-💵 Loan Amount
-</span>
-
-<strong id="resultPrincipal">
-₹0
-</strong>
-
+<span>💵 Loan Amount</span>
+<strong id="resultPrincipal">₹0</strong>
 </div>
 
-
 <div class="emi-row">
-
-<span>
-📈 Interest Rate
-</span>
-
-<strong id="resultRate">
-0%
-</strong>
-
+<span>📈 Interest Rate</span>
+<strong id="resultRate">0%</strong>
 </div>
 
-
 <div class="emi-row">
-
-<span>
-📅 Loan Period
-</span>
-
-<strong id="resultTenure">
-0 महीने
-</strong>
-
+<span>📅 Loan Period</span>
+<strong id="resultTenure">0 महीने</strong>
 </div>
-
 
 <div class="emi-row highlight">
-
-<span>
-💰 Monthly EMI / किस्त
-</span>
-
-<strong id="resultEMI">
-₹0
-</strong>
-
+<span>💰 Monthly EMI / किस्त</span>
+<strong id="resultEMI">₹0</strong>
 </div>
-
 
 <div class="emi-row">
-
-<span>
-💸 Total Interest
-</span>
-
-<strong id="resultInterest">
-₹0
-</strong>
-
+<span>💸 Total Interest</span>
+<strong id="resultInterest">₹0</strong>
 </div>
-
 
 <div class="emi-row">
-
-<span>
-💳 Total Payment
-</span>
-
-<strong id="resultTotal">
-₹0
-</strong>
-
+<span>💳 Total Payment</span>
+<strong id="resultTotal">₹0</strong>
 </div>
-
 
 <div class="emi-note">
-
 ⚠️ यह EMI अनुमानित है। वास्तविक EMI बैंक की ब्याज दर,
 processing fee और loan conditions के अनुसार अलग हो सकती है।
-
 </div>
 
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 
 <footer>
-
 © 2026 Kurubanshi Tractor Dealership
-
 </footer>
-
 
 <script>
 
-/* ================= ENQUIRY FORM ================= */
+/* ================= ENQUIRY ================= */
 
 function openForm(model){
 
-  const formSection =
-    document.getElementById("formSection");
+  document.getElementById("formSection").style.display="block";
+  document.getElementById("successSection").style.display="none";
 
-  const selectedModel =
-    document.getElementById("selectedModel");
+  document.getElementById("selectedModel").value=model;
+  document.getElementById("tractorModel").value=model;
+  document.getElementById("emailSubject").value=
+    "नई Tractor Enquiry - "+model;
 
-  const tractorModel =
-    document.getElementById("tractorModel");
-
-  const emailSubject =
-    document.getElementById("emailSubject");
-
-
-  selectedModel.value = model;
-
-  tractorModel.value = model;
-
-  emailSubject.value =
-    "नई Tractor Enquiry - " + model;
-
-
-  formSection.style.display = "block";
-
-  formSection.scrollIntoView({
+  document.getElementById("formSection").scrollIntoView({
     behavior:"smooth"
   });
-
 }
-
 
 function closeForm(){
 
-  document.getElementById("formSection").style.display =
-    "none";
+  document.getElementById("formSection").style.display="none";
 
 }
 
+function newEnquiry(){
 
-/* ================= EMI CALCULATOR ================= */
+  document.getElementById("successSection").style.display="none";
+
+  document.getElementById("formSection").style.display="block";
+
+  document.getElementById("enquiryForm").reset();
+
+  document.getElementById("selectedModel").value="";
+
+  document.getElementById("formSection").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+/* ================= SUCCESS CHECK ================= */
+
+window.addEventListener("load",function(){
+
+  const params=new URLSearchParams(window.location.search);
+
+  if(params.get("submitted")==="true"){
+
+    document.getElementById("formSection").style.display="none";
+
+    document.getElementById("successSection").style.display="block";
+
+    document.getElementById("successSection").scrollIntoView({
+      behavior:"smooth"
+    });
+
+    /*
+      Tractor model browser session में save रहता है,
+      इसलिए success screen पर उसका नाम दिखेगा।
+    */
+
+    const savedModel=sessionStorage.getItem("submittedTractor");
+
+    if(savedModel){
+
+      document.getElementById("successModel").innerText=savedModel;
+
+    }
+
+    history.replaceState({},document.title,
+      window.location.pathname
+    );
+  }
+});
+
+
+/* Save selected tractor before submitting */
+
+document.getElementById("enquiryForm")
+.addEventListener("submit",function(){
+
+  const model=
+    document.getElementById("tractorModel").value;
+
+  sessionStorage.setItem("submittedTractor",model);
+
+});
+
+
+/* ================= EMI ================= */
 
 function toggleEMI(){
 
-  const calculator =
+  const calculator=
     document.getElementById("emiCalculator");
 
-  const button =
+  const button=
     document.getElementById("emiOpenBtn");
 
+  if(calculator.style.display==="block"){
 
-  if(calculator.style.display === "block"){
-
-    calculator.style.display = "none";
-
-    button.style.display = "block";
+    calculator.style.display="none";
+    button.style.display="block";
 
   }else{
 
-    calculator.style.display = "block";
-
-    button.style.display = "none";
+    calculator.style.display="block";
+    button.style.display="none";
 
   }
-
 }
 
-
-/* CUSTOM MONTHS */
 
 function updateTenure(){
 
-  const tenure =
+  const tenure=
     document.getElementById("emiTenure").value;
 
-  const customBox =
-    document.getElementById("customTenureBox");
-
-
-  if(tenure === "custom"){
-
-    customBox.style.display = "block";
-
-  }else{
-
-    customBox.style.display = "none";
-
-  }
-
+  document.getElementById("customTenureBox").style.display=
+    tenure==="custom" ? "block" : "none";
 }
 
 
-/* CALCULATE EMI */
-
 function calculateTractorEMI(){
 
-  const principal =
-    parseFloat(
-      document.getElementById("emiLoanAmount").value
-    );
+  const principal=
+    parseFloat(document.getElementById("emiLoanAmount").value);
 
+  const annualRate=
+    parseFloat(document.getElementById("emiInterest").value);
 
-  const annualRate =
-    parseFloat(
-      document.getElementById("emiInterest").value
-    );
-
-
-  const selectedTenure =
+  const selectedTenure=
     document.getElementById("emiTenure").value;
-
 
   let months;
 
-
-  if(!principal || principal <= 0){
-
+  if(!principal || principal<=0){
     alert("कृपया Loan Amount डालें।");
-
     return;
-
   }
 
-
-  if(
-    isNaN(annualRate) ||
-    annualRate < 0
-  ){
-
+  if(isNaN(annualRate) || annualRate<0){
     alert("कृपया सही Interest Rate डालें।");
-
     return;
-
   }
 
+  if(selectedTenure==="custom"){
 
-  if(selectedTenure === "custom"){
+    months=
+      parseInt(document.getElementById("customMonths").value);
 
-    months =
-      parseInt(
-        document.getElementById("customMonths").value
-      );
-
-
-    if(!months || months <= 0){
-
+    if(!months || months<=0){
       alert("कृपया सही महीने डालें।");
-
       return;
-
     }
 
   }else{
 
-    months =
-      parseInt(selectedTenure);
-
+    months=parseInt(selectedTenure);
 
     if(!months){
-
       alert("कृपया EMI की अवधि चुनें।");
-
       return;
-
     }
-
   }
 
-
-  const monthlyRate =
-    annualRate / 12 / 100;
-
+  const monthlyRate=annualRate/12/100;
 
   let emi;
 
+  if(monthlyRate===0){
 
-  if(monthlyRate === 0){
-
-    emi =
-      principal / months;
+    emi=principal/months;
 
   }else{
 
-    emi =
-      principal *
-      monthlyRate *
-      Math.pow(
-        1 + monthlyRate,
-        months
-      ) /
-      (
-        Math.pow(
-          1 + monthlyRate,
-          months
-        ) - 1
-      );
+    emi=
+      principal*
+      monthlyRate*
+      Math.pow(1+monthlyRate,months)/
+      (Math.pow(1+monthlyRate,months)-1);
 
   }
 
+  const totalPayment=emi*months;
+  const totalInterest=totalPayment-principal;
 
-  const totalPayment =
-    emi * months;
+  document.getElementById("emiResult").style.display="block";
 
+  document.getElementById("resultPrincipal").innerText=
+    "₹"+Math.round(principal).toLocaleString("en-IN");
 
-  const totalInterest =
-    totalPayment - principal;
+  document.getElementById("resultRate").innerText=
+    annualRate+"%";
 
+  document.getElementById("resultTenure").innerText=
+    months+" महीने";
 
-  document.getElementById("emiResult")
-    .style.display = "block";
+  document.getElementById("resultEMI").innerText=
+    "₹"+Math.round(emi).toLocaleString("en-IN");
 
+  document.getElementById("resultInterest").innerText=
+    "₹"+Math.round(totalInterest).toLocaleString("en-IN");
 
-  document.getElementById("resultPrincipal")
-    .innerText =
-      "₹" +
-      Math.round(principal)
-        .toLocaleString("en-IN");
-
-
-  document.getElementById("resultRate")
-    .innerText =
-      annualRate + "%";
-
-
-  document.getElementById("resultTenure")
-    .innerText =
-      months + " महीने";
-
-
-  document.getElementById("resultEMI")
-    .innerText =
-      "₹" +
-      Math.round(emi)
-        .toLocaleString("en-IN");
-
-
-  document.getElementById("resultInterest")
-    .innerText =
-      "₹" +
-      Math.round(totalInterest)
-        .toLocaleString("en-IN");
-
-
-  document.getElementById("resultTotal")
-    .innerText =
-      "₹" +
-      Math.round(totalPayment)
-        .toLocaleString("en-IN");
-
+  document.getElementById("resultTotal").innerText=
+    "₹"+Math.round(totalPayment).toLocaleString("en-IN");
 }
 
 </script>
